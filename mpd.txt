@@ -1,0 +1,30 @@
+CREATE table Liste
+(id_liste int(5) not null,
+ nom  varchar(50) not null,
+ primary key (id_liste)
+ );
+
+CREATE table Tache
+(id_tache int not null,
+ nom varchar(50) not null,
+ type varchar(50) not null,
+ note varchar(50) not null,
+ date varchar (50) not null,
+ validite varchar (20) not null,
+ personne varchar (50) not null,                                                                             difficulte varchar (10) not null,
+ ref_liste int (50) not null,
+ primary key (id_tache)
+ );
+
+CREATE table Utilisateur
+(id_utilisateur int(5) not null,
+ nom varchar(50) not null,
+ prenom varchar(50) not null,
+ nom_utilisateur varchar(50) not null,
+ mdp varchar(50) not null,
+ primary key (id_utilisateur)
+ );
+ 
+ 
+ Alter table Tache
+ ADD CONSTRAINT fk_Tache_Liste FOREIGN KEY (ref_liste) REFERENCES Liste (id_liste); 
