@@ -6,6 +6,7 @@ import Utilisateur.Utilisateur;
 import jdk.jshell.execution.Util;
 
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -29,23 +30,98 @@ public class Main {
             monUti.Sinscrire();
         }
 
+
         System.out.println("   Menu principale  : ");
-        System.out.println("-(lister) Lister tous les utilisateurs");
-        System.out.println("-(rechercher) Rechercher des utilisateurs");
-        System.out.println("-(ajouter) Ajouter un utilisateurs");
-        System.out.println("-(selectionner) Selectionner un utilisateurs");
-        System.out.println("-(deconnecter) Se deconnecter");
+        System.out.println("        LISTE         ");
+        System.out.println("-(ajoutliste) Ajouter une liste");
+        System.out.println("-(afficherliste) Afficher toute les listes");
+        System.out.println("-(modifierliste) Modifier une liste");
+        System.out.println("-(supprimerliste) Supprimer une liste");
+        System.out.println("        TACHE       ");
+        System.out.println("-(ajouttache) Ajouter une tache");
+        System.out.println("-(affichertache) Afficher toutes les taches");
+        System.out.println("-(modifiertache) Modifier une tache");
+        System.out.println("-(supprimertache) Supprimer une tache");
+        System.out.println("-(validitetache) La validité de vos taches");
+        System.out.println("-(consultertache) Consulter dans quelle liste se trouve votre tache");
+        System.out.println("      UTILISATEUR     ");
+        System.out.println("-(modifieruti) Modifier son utilisateur");
+        System.out.println("-(afficheruti) Afficher son utilisateur");
+        System.out.println("       QUITTER      ");
         System.out.println("-(quitter) Quitter");
+
 
         System.out.println("Votre choix : ");
         Scanner scanner1 = new Scanner(System.in);
         String maChaine = scanner1.nextLine();
 
+        while (!maChaine.equals("quitter")) {
 
-        switch (maChaine) {
-            case "lister":
+            switch (maChaine) {
+                case "ajoutliste":
+                    Liste laListe = new Liste();
+                    laListe.ValiderListe();
+                    System.out.println("Vous pouvez ainsi interagir avec votre liste et ajouter des taches");
+                    break;
 
-                monUti.
+                case "afficherliste":
+                    Liste maListe = new Liste();
+                    maListe.AfficherListe();
+                    break;
+
+                case "modifierliste":
+                    Liste leListe = new Liste();
+                    leListe.ModifierListe();
+                    break;
+
+                case "supprimerliste":
+                    Liste suppListe = new Liste();
+                    suppListe.SupprimerListe();
+                    break;
+
+                case "ajouttache":
+                    Tache ajouTache = new Tache();
+                    ajouTache.ValiderTache();
+                    break;
+
+                case "affichertache":
+                    Tache deTache = new Tache();
+                    deTache.AfficherTache();
+                    break;
+
+                case "modifiertache":
+                    Tache feTache = new Tache();
+                    feTache.ModifierTache();
+                    break;
+
+                case "supprimertache":
+                    Tache faTache = new Tache();
+                    faTache.SupprimerTache();
+                    break;
+
+                case "validitetache":
+                    Tache geTache = new Tache();
+                    geTache.ValiditeDeLaTache();
+                    break;
+
+                case "consultertache":
+                    Tache neTache = new Tache();
+                    neTache.tacheDansListe();
+                    break;
+
+                case "modifieruti":
+                    Utilisateur moiUti = new Utilisateur();
+                    moiUti.Modifier();
+                    break;
+
+                case "afficheruti":
+                    Utilisateur newUti = new Utilisateur();
+                    newUti.AfficherUtilisateur();
+                    break;
+
+                case "quitter":
+                    return;
+            }
         }
     }
 }
