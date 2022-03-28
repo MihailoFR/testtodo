@@ -30,6 +30,8 @@ public class Main {
             monUti.Sinscrire();
         }
 
+        String maChaine = "";
+        while (!maChaine.equals("quitter")) {
 
         System.out.println("   Menu principale  : ");
         System.out.println("        LISTE         ");
@@ -51,11 +53,9 @@ public class Main {
         System.out.println("-(quitter) Quitter");
 
 
-        System.out.println("Votre choix : ");
+       System.out.println("Votre choix : ");
         Scanner scanner1 = new Scanner(System.in);
-        String maChaine = scanner1.nextLine();
-
-        while (!maChaine.equals("quitter")) {
+        maChaine = scanner1.nextLine();
 
             switch (maChaine) {
                 case "ajoutliste":
